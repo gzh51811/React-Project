@@ -1,0 +1,8 @@
+.sort .ant-tabs-tab{
+	text-align: center !important;
+	margin: 0 0 12px 0 !important;
+	padding:8px 14px !important;
+}
+.sort .ant-tabs-left-content{
+	padding:10px 13px 0 13px;
+}

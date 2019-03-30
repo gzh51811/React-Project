@@ -8,10 +8,9 @@ import { Route, Redirect, Switch, NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 //引入以导航菜单分类的大组件
 import Home from './pages/Home';
-import List from './pages/List';
+import Sort from './pages/Sort';
 import Goods from './pages/Goods';
 import Cart from './pages/Cart';
-
 
 //引入组件个人样式
 import './App.css';
@@ -27,10 +26,10 @@ class App extends Component {
 					icon: 'home'
 				},
 				{
-					text: '列表',
-					name: 'List',
-					path: '/list',
-					icon: 'bars'
+					text: '分类',
+					name: 'Sort',
+					path: '/sort',
+					icon: 'appstore'
 				},
 				{
 					text: '购物车',
@@ -49,19 +48,25 @@ class App extends Component {
 		}
 
 	}
-	handleClick = (e)=>{
-        console.log(this,e)
-        this.setState({
-            current: e.key
-        },()=>{
-            //路由跳转：编程式导航
-            // 利用withRouter()高阶组件实现history的传递
-            this.props.history.push('/'+e.key.toLowerCase());
-        });
-    }
+	handleClick = (e) => {
+		this.setState({
+			current: e.key
+		}, () => {
+			//路由跳转：编程式导航
+			// 利用withRouter()高阶组件实现history的传递
+			this.props.history.push('/' + e.key.toLowerCase());
+		});
+	}
 	render() {
 		return(
 			<div className="App">
+				<Switch>
+                    <Route path="/home" component={Home} />
+                    <Route path="/sort" component={Sort} />
+                    <Route path="/goods/:id" component={Goods} />
+                    <Route path="/cart" component={Cart} />
+                    <Redirect from="/" to="/home" />
+                </Switch>
                 <Menu
                     onClick={this.handleClick}
                     selectedKeys={[this.state.current]}
@@ -87,13 +92,6 @@ class App extends Component {
                     }
                     
                 </Menu>
-                <Switch>
-                    <Route path="/home" component={Home} />
-                    <Route path="/list" component={List} />
-                    <Route path="/goods/:id" component={Goods} />
-                    <Route path="/cart" component={Cart} />
-                    <Redirect from="/" to="/home" />
-                </Switch>
             </div>
 		);
 	}
