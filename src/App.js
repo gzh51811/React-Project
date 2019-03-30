@@ -12,6 +12,10 @@ import List from './pages/List';
 import Goods from './pages/Goods';
 import Cart from './pages/Cart';
 
+
+//引入组件个人样式
+import './App.css';
+
 class App extends Component {
 	constructor() {
 		super();
@@ -45,23 +49,37 @@ class App extends Component {
 		}
 
 	}
+	handleClick = (e)=>{
+        console.log(this,e)
+        this.setState({
+            current: e.key
+        },()=>{
+            //路由跳转：编程式导航
+            // 利用withRouter()高阶组件实现history的传递
+            this.props.history.push('/'+e.key.toLowerCase());
+        });
+    }
 	render() {
 		return(
-			<div className="container">
+			<div className="App">
                 <Menu
                     onClick={this.handleClick}
                     selectedKeys={[this.state.current]}
-                    mode="horizontal"
+                    mode="horizontal" className="NavMenu"
                 >
                     {
-                        this.state.navs.map(item => <Menu.Item key={item.name}>
+                        this.state.navs.map(item => <Menu.Item className="NavMenuItem" key={item.name}>
                         {
                             item.name=='Cart' 
                             ? 
-                            <Badge count='3'><Icon type={item.icon} />{item.text}</Badge>
+                            <Badge count='3'>
+                            	<Icon className="NavMenuIcon" type={item.icon}/>
+                            	<span className="NavMenuItemText">{item.text}</span>
+                            </Badge>
                             :
                             <>
-                            <Icon type={item.icon} />{item.text}
+	                            <Icon className="NavMenuIcon" type={item.icon}/>
+	                            <span className="NavMenuItemText">{item.text}</span>
                             </>
                         }
                         
