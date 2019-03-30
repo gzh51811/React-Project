@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {ApiUrl} from '../ApiConfig'
 
-axios.defaults.baseURL = AppUrl;
+axios.defaults.baseURL = ApiUrl;
 
 /**
  * 高阶组件：包装函数
