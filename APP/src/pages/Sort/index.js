@@ -4,7 +4,10 @@ import Header from '../CommonComponents/Header';
 import SortDetails from './SortSeries.js';
 import withAxios from '../../hoc/withAxios';
 
-
+//挂载store全局函数
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import sortAction from '../../actions/sortAction';
 
 import './index.css'
 import { Tabs } from 'antd';
@@ -14,7 +17,8 @@ class Sort extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			tabPosition: 'left',
+			themeImgSrc:'',
+			themeSeriesList:[],
 			sortArray:[
 				"卧室床品",
 				"冠军毛巾",
@@ -29,24 +33,44 @@ class Sort extends React.Component {
 			]
 		}
 	}
-
-	changeTabPosition = (tabPosition) => {
+	
+	changeSort(){
+		//点击切换分类标题时请求数据重新渲染
+		// this.getDate();
+	}
+	
+	//获取数据函数
+	async getDate() {
+		//修改接口和处理数据渲染就好#########################################################
+		let {
+			data
+		} = await this.props.axios.get('/sort/series', {
+			params: {
+				theme:this.props.children
+			}
+		});
+		console.log(data);
 		this.setState({
-			tabPosition
+			themeImgSrc:'',
+			themeSeriesList: data.datas.themeSeriesList
 		});
 	}
-
+	
 	render() {
 		let {
-			sortArray
+			sortArray,themeImgSrc,themeSeriesList
 		} = this.state;
 		return(
 			<div className="sort">
         		<Header rightButton={'search'}>类目</Header>
-        		<Tabs tabPosition = {this.state.tabPosition} >
+        		<Tabs tabPosition = "left" onChange = {this.changeSort}>
         			{
         				sortArray.map((item,idx)=><TabPane tab={item} key={idx}>
-							<SortDetails>{item}</SortDetails>
+							<SortDetails 
+								themeImgSrc={themeImgSrc}
+								themeSeriesList={themeSeriesList}
+								>{item}
+							</SortDetails>
 						</TabPane>)
         			}
 				</Tabs> 
@@ -55,6 +79,9 @@ class Sort extends React.Component {
 	}
 }
 
-
+Sort = connect(
+    state=>({}),
+    dispatch=>bindActionCreators(sortAction,dispatch)
+)(Sort)
 
 export default Sort;

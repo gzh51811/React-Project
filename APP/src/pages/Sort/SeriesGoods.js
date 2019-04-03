@@ -6,9 +6,7 @@ import SeriesContent from './SeriesContent';
 import withAxios from '../../hoc/withAxios';
 
 //挂载store全局函数
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import commonAction from '../../actions/commonAction';
 //挂载history
 import {withRouter} from 'react-router-dom';
 
@@ -21,21 +19,23 @@ class SeriesGoods extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			themeSeriesName:''
+			themeSeriesName:'',
+			idx:'0'
 		}
 	}
 
 	componentWillMount() {
-//		console.log('系列商品显示',this.props)
+		// console.log('系列商品显示',this.props)
+		let idx = this.props.location.search.slice(5)
 		let {themeSeries} = this.props.match.params;
 		this.setState({
-			themeSeriesName:themeSeries
+			themeSeriesName:themeSeries,
+			idx
 		});
-		console.log('系列商品显示',this.props)
+		// console.log('系列商品显示',this.state)
 	}
 
-	async getDate() {
-
+	async getData() {
 		//修改接口和处理数据渲染就好#########################################################
 		let {
 			data
@@ -52,8 +52,11 @@ class SeriesGoods extends React.Component {
 
 	}
 	
-	changeDate(activeKey){
-		console.log('点击切换回调')
+	changeDate(_this,idx){
+		_this.setState({
+			idx
+		});
+		// console.log(_this)
 		//发送新请求
 	}
 
@@ -61,7 +64,7 @@ class SeriesGoods extends React.Component {
 		let {
 			children
 		} = this.props;
-		let {SeriesArray}=this.props.com;
+		let {SeriesArray}=this.props.sort;
 		return <div className="SeriesBox">
 			<Header rightButton={'search'}>{this.state.themeSeriesName}</Header>
 			<div>
@@ -73,11 +76,12 @@ class SeriesGoods extends React.Component {
 		          defaultActiveKey="1"
 		          tabPosition="top"
 		          size="large"
-		          onChange={this.changeDate}
+		          onChange={this.changeDate.bind(this,this)}
+				  activeKey = {this.state.idx}
 		        >
 		        	{SeriesArray.map((item,idx)=>{
 		        		return <TabPane tab={item} key={idx}>
-			        			<SeriesContent/>
+			        			<SeriesContent idx={this.state.idx}/>
 			        		</TabPane>
 		        		}
 		        	)}
@@ -93,8 +97,8 @@ SeriesGoods = withAxios(SeriesGoods);
 SeriesGoods = withRouter(SeriesGoods);
 
 SeriesGoods = connect(
-    state=>({com:state.comon}),
-    dispatch=>bindActionCreators(commonAction,dispatch)
+    state=>({sort:state.sort}),
+    dispatch=>({})
 )(SeriesGoods)
 
 export default SeriesGoods;

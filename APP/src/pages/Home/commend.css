@@ -1,5 +1,8 @@
-.CommendBox .ant-carousel{
+.CommendBox{
 	width: 40vw;
+	/* overflow: hidden; */
+}
+.CommendBox .ant-carousel{
 	overflow: visible;
 }
 .CommendBox .ant-carousel .slick-list{
@@ -8,8 +11,8 @@
 }
 .CommendBox .ant-carousel .slick-slider {
   text-align: center;
-  height: 170px;
-  overflow: visible;
+  height: 164px;
+  /* overflow: visible; */
 }
 .CommendBox .ant-carousel .slick-slider img{
   width: 125px;
@@ -19,7 +22,7 @@
 }
 .CommendBox .ant-carousel .slick-slider p{
   width: 125px;
-  height: 17px;
+  height: 20px;
   margin: 0;
   padding: 0;
   font-size: 10px;
@@ -31,6 +34,10 @@
 .CommendBox .CommendBoxItemPrice{
 	color: rgb(205, 80, 114);
 }
+/* .CommendBox .slick-slide{
+	width: 40vw !important;
+	overflow: visible;
+} */
 .CommendBox .ant-carousel .slick-slide h3 {
   color: #fff;
 }

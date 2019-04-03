@@ -14,6 +14,7 @@ import Cart from './pages/Cart';
 import Topic from './pages/Topic';
 import Search from './pages/Search';
 import SeriesGoods from './pages/Sort/SeriesGoods';
+import Product from './pages/Product';
 
 //引入组件个人样式
 import './App.css';
@@ -69,6 +70,7 @@ class App extends Component {
                     <Route path="/sort/series/:themeSeries" component={SeriesGoods} exact/>
                     <Route path="/goods/:id" component={Goods} />
                     <Route path="/cart" component={Cart} />
+					<Route path="/product/:goodsId" component={Product} />
                     <Route path="/home/topic" component={Topic} exact/>
                     <Route path="/search" component={Search} />
                     <Redirect from="/" to="/home" />
