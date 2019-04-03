@@ -1,0 +1,53 @@
+.setFocus {
+  height: 100%;
+}
+.setFocus .setHeader {
+  height: 50px;
+  width: 100%;
+  background: #f0f0f0;
+}
+.setFocus .setHeader p {
+  font-size: 14px;
+  height: 100%;
+  display: flex;
+  padding-left: 20px;
+  justify-content: left;
+  align-items: center;
+  color: #777777;
+}
+.setFocus .setlist {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 5px;
+  border-bottom: 1px solid #ccc;
+}
+.setFocus .setlist p {
+  height: 100%;
+  line-height: 61px;
+  font-size: 16px;
+  color: #333333;
+  padding-left: 15px;
+}
+.setFocus .setlist .listright {
+  padding-right: 15px;
+  font-size: 16px;
+  color: #333333;
+}
+.setFocus .setlist .listright img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.userM {
+  text-align: left;
+  background: #f0f0f0;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  font-size: 16px;
+  color: #333;
+}

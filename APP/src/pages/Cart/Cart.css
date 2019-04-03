@@ -1,0 +1,103 @@
+/* .Cart {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: space-between;
+} */
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  height: 100%;
+}
+.Cart {
+  width: 100%;
+  /* background: #efefef; */
+}
+.Cart .main {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.Cart .footer {
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  bottom: 2.860412rem;
+}
+.Cart .payRow {
+  background: #ffffff;
+  height: 3.203661rem;
+}
+.Cart .payRow col {
+  height: 100%;
+  /* line-height: 2.91762rem; */
+}
+
+.Cart .PayButton {
+  height: 2.91762rem;
+  color: #ffffff;
+  line-height: 2.91762rem;
+  background: #d9534f;
+  font-size: 0.915332rem;
+}
+.Cart .changeNum {
+  display: inline-block;
+  background: #eee;
+  color: #555;
+  font-size: 14px;
+  /* width: 65px;
+  height: 34px; */
+  padding: 6px 12px;
+}
+.Cart .ant-list-split .ant-list-item:last-child {
+  /* border-bottom: none; */
+  border-bottom: 1px solid #e8e8e8;
+}
+ul,
+li {
+  list-style: none;
+}
+.Cart .guessUl {
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.Cart .guessUl li {
+  height: 100%;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  float: left;
+}
+.Cart .guessUl li .p-name {
+  width: 100%;
+  text-align: center;
+  text-overflow: ellipsis;
+  /* overflow: hidden; */
+  white-space: nowrap;
+  font-size: 12px;
+  margin-top: 4px;
+  height: 12px;
+}
+.Cart .guessUl li .p-price {
+  width: 100%;
+  text-align: center;
+  color: #888;
+  margin-top: -10px;
+}
+.Cart .checkIcon {
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  color: #fff;
+  font-size: 38px;
+  border-radius: 50%;
+  border: 1px solid #cccccc;
+}

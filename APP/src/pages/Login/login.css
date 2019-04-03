@@ -1,0 +1,52 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.login {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  /* background: url("http://activity.dapuimg.com/m_login_newbg.png"); */
+}
+.login .loginimg {
+  width: 100%;
+  height: 780px;
+}
+.login .loginmain {
+  width: 100%;
+  height: 58%;
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+.login .login-form {
+  width: 80%;
+}
+.login .login-form input {
+  height: 54px;
+  width: 100%;
+  background: none;
+  font-size: 18px;
+  color: #5b928a;
+  border: none;
+  border-bottom: 1px solid #5b928a;
+}
+.login .ant-input-affix-wrapper .ant-input:not(:first-child) {
+  padding-left: 50px;
+}
+.login .loginBtn {
+  width: 100%;
+  height: 45px;
+  background: #5b928a;
+  border-radius: 22px;
+}
+.login .Loginother {
+  text-align: right;
+}
+.login .Loginother span {
+  color: #ffffff;
+  font-size: 14px;
+  margin-left: 20px;
+}
