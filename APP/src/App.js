@@ -11,6 +11,9 @@ import Home from './pages/Home';
 import Sort from './pages/Sort';
 import Goods from './pages/Goods';
 import Cart from './pages/Cart';
+import Topic from './pages/Topic';
+import Search from './pages/Search';
+import SeriesGoods from './pages/Sort/SeriesGoods';
 
 //引入组件个人样式
 import './App.css';
@@ -61,10 +64,13 @@ class App extends Component {
 		return(
 			<div className="App">
 				<Switch>
-                    <Route path="/home" component={Home} />
-                    <Route path="/sort" component={Sort} />
+                    <Route path="/home" component={Home} exact/>
+                    <Route path="/sort" component={Sort} exact/>
+                    <Route path="/sort/series/:themeSeries" component={SeriesGoods} exact/>
                     <Route path="/goods/:id" component={Goods} />
                     <Route path="/cart" component={Cart} />
+                    <Route path="/home/topic" component={Topic} exact/>
+                    <Route path="/search" component={Search} />
                     <Redirect from="/" to="/home" />
                 </Switch>
                 <Menu
@@ -87,7 +93,6 @@ class App extends Component {
 	                            <span className="NavMenuItemText">{item.text}</span>
                             </>
                         }
-                        
                         </Menu.Item>)
                     }
                     

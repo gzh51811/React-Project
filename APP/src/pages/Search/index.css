@@ -1,0 +1,63 @@
+.SearchBox {
+	padding: 15px 15px 0 15px;
+	border-bottom:5px solid #e0e0e0;
+}
+.SearchBox .ant-input{
+	border-radius: 20px;
+	border-color: #999;
+}
+.SearchBox p{
+	margin-top: 15px;
+	text-align: left;
+	font-size: 16px;
+	color: #ccc;
+}
+.SearchBox .SearchBoxKeyword,.SearchBox .SearchBoxHistoryKeyword{
+	text-align: left;
+}
+.SearchBox .SearchBoxKeyword span,.SearchBox .SearchBoxHistoryKeyword span{
+	text-align: center;
+	display: inline-block;
+	line-height: 16px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: 200;
+    color: #555;
+    background-color: #efefef;
+}
+.SearchBox .SearchBoxHistoryKeyword{
+	margin: 20px 0;
+	border-top:2px solid #eee;
+	
+}
+.SearchBox .SearchBoxHistoryKeyword p{
+	margin: 10px 0;
+}
+.SearchBoxFooter{
+	margin-bottom: 15px;
+}
+.SearchBoxFooter p{
+	margin: 30px 20px;
+	color: black;
+	position: relative;
+}
+.SearchBoxFooter p span{
+	background: #fff;
+	padding: 0 5px;
+}
+.SearchBoxFooter p i{
+	border-bottom: 2px solid #ccc;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    width: 100%;
+    z-index: -1;
+}
+.SearchBoxFooter .SearchBoxCommend{
+	margin: 0 15px;
+	overflow: hidden;
+}

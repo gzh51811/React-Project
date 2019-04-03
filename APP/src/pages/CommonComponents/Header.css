@@ -3,6 +3,9 @@
 	background: #333;
 	height: 7vh;
 	line-height: 7vh;
+	position: fixed;
+	overflow: hidden;
+	z-index: 999;
 }
 .HeaderButton{
 	margin-top: 4px;

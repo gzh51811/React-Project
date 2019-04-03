@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Header from '../CommonComponents/Header'
-import SortDetails from './SortDetails.js'
+import Header from '../CommonComponents/Header';
+import SortDetails from './SortSeries.js';
 import withAxios from '../../hoc/withAxios';
+
+
+
 import './index.css'
-import { Tabs, Select } from 'antd';
+import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
-const Option = Select.Option;
-
-
 
 class Sort extends React.Component {
 	constructor() {
@@ -28,27 +28,6 @@ class Sort extends React.Component {
 				"婴童用品"
 			]
 		}
-	}
-
-	async componentWillMount() {
-
-		// 使用axios
-		//      let { data } = await this.props.axios.get('/mobile/index.php', {
-		//          params: {
-		//              act: 'goods',
-		//              op: 'goods_list',
-		//              keyword: '',
-		//              page: 10,
-		//              curpage: 1
-		//          }
-		//      });
-		//
-		//      console.log(data);
-		//
-		//      this.setState({
-		//          datalist: data.datas.goods_list
-		//      });
-
 	}
 
 	changeTabPosition = (tabPosition) => {
@@ -76,7 +55,6 @@ class Sort extends React.Component {
 	}
 }
 
-// 高阶组件的应用
-Sort = withAxios(Sort);
+
 
 export default Sort;

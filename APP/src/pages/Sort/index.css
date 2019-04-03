@@ -1,3 +1,6 @@
+.sort .ant-tabs{
+	padding-top: 7vh;
+}
 .sort .ant-tabs-tab{
 	text-align: center !important;
 	margin: 0 0 12px 0 !important;

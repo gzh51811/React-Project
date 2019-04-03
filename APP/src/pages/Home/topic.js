@@ -2,11 +2,14 @@ import { Comment, Tooltip, List ,Icon } from 'antd';
 import moment from 'moment';
 import React from 'react';
 
+//挂载history
+import {withRouter} from 'react-router-dom'
+
 import './topic.css'
 
 class Topic extends React.Component {
 	constructor(props) {
-		super(props);
+		super();
 		this.state = {
 			likes: 0,
 		    dislikes: 0,
@@ -52,7 +55,7 @@ class Topic extends React.Component {
 					author: '大朴',
 					avatar: 'https://activity.dapuimg.com/%E5%A4%A7%E6%9C%B4%E5%A4%B4%E5%83%8F.jpg',
 					content: (
-						<div>
+						<div className="contentBox">
 							<img className="topicImg" src="https://activity.dapuimg.com/%E7%B2%BE1.jpg"/>
 							<p className="topicText">草木染｜植物提取染料，贴近肌肤的安全</p>
 						</div>
@@ -96,6 +99,12 @@ class Topic extends React.Component {
 			action: 'disliked',
 		});
 	}
+	goTopic = (e) => {
+		if (e.target.className=='topicText'||e.target.className=='topicImg') {
+//			console.log('点击帖子内容跳转话题主页')
+			this.props.history.push('/home/topic');
+		}
+	}
 	render() {
 		let {
 			data
@@ -110,11 +119,15 @@ class Topic extends React.Component {
 			    avatar={item.avatar}
 			    content={item.content}
 			    datetime={item.datetime}
+			    onClick = {this.goTopic}
 			    />
 				)
 			}	
 			/>
 	}
 }
+
+//把history挂在props上
+Topic=withRouter(Topic);
 
 export default Topic;

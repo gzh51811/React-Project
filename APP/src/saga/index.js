@@ -1,4 +1,4 @@
-//引入saga里的方法
+//引入saga里的方法,处理异步请求
 import { call, put, takeEvery, takeLatest,select,all } from 'redux-saga/effects';
 
 import {getData} from '../service';
