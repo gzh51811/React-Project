@@ -33,6 +33,10 @@ let reducer = (state = initState, { type, payload }) => {
         ...state,
         current: payload.current
       };
+    //全局去搜索页
+    case "GOTO_SEARCH":
+      payload.push("/search");
+      return state;
     default:
       return state;
   }

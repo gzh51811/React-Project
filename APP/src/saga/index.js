@@ -2,7 +2,7 @@
 //引入saga里的方法
 import { put, takeLatest, all } from "redux-saga/effects";
 
-import { getCart } from "../service";
+// import { getCart } from "../service";
 
 //let delay = (time)=>new Promise(resolve=>setTimeout(resolve,time));
 

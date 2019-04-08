@@ -1,0 +1,25 @@
+.topicFooter{
+	margin-bottom: 150px;
+	padding:10px 15px 0 15px;
+	border-top: 4px solid #eee;
+}
+.topicFooter .InputBox{
+	width: 60%;
+	float: left;
+}
+.topicFooter .InputBox{
+	width: 60%;
+	float: left;
+}
+.topicFooter .ButtonBox{
+	width: 40%;
+	float: left;
+}
+.topicFooter .ButtonBox span{
+	display: inline-block;
+	width: 50%;
+}
+.topicFooter .ButtonBox .anticon{
+	line-height: 40px;
+	font-size: 20px;
+}

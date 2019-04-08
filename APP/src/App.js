@@ -6,14 +6,20 @@ import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 //引入以导航菜单分类的大组件
 import Home from "./pages/Home";
-import List from "./pages/List";
-// import Goods from "./pages/Goods";
+// import List from "./pages/List";
+import Goods from "./pages/Goods";
+import Sort from "./pages/Sort";
 import Cart from "./pages/Cart";
 import MyUser from "./pages/MyUser";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SetFocus from "./pages/SetFocus";
 import setPassword from "./pages/setPassword";
+import Topic from "./pages/Topic";
+import Search from "./pages/Search";
+import SeriesGoods from "./pages/Sort/SeriesGoods";
+import Product from "./pages/Product";
+
 //引入组件个人样式
 import "./App.css";
 
@@ -96,14 +102,23 @@ class App extends Component {
           ""
         )}
         <Switch>
-          <Route path="/home" component={Home} />
-          <Route path="/list" component={List} />
           <Route path="/myuser" component={MyUser} exact />
           <Route path="/myuser/set" component={SetFocus} exact />
           <Route path="/myuser/set/setpassw" component={setPassword} exact />
           <Route path="/login" component={Login} />
-          <Route path="/cart" component={Cart} />
           <Route path="/reg" component={Register} />
+          <Route path="/home" component={Home} exact />
+          <Route path="/sort" component={Sort} exact />
+          <Route
+            path="/sort/series/:themeSeries"
+            component={SeriesGoods}
+            exact
+          />
+          <Route path="/goods/:id" component={Goods} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/product/:goodsId" component={Product} />
+          <Route path="/home/topic" component={Topic} exact />
+          <Route path="/search" component={Search} />
           <Redirect from="/" to="/home" />
         </Switch>
       </div>

@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import rootReducer from "../reducers";
 import rootSaga from "../saga";
 
@@ -11,7 +11,7 @@ const sagaMiddleware = createSagaMiddleware();
 // 合并中间件
 // let middleware = compose(applyMiddleware(sagaMiddleware),composeWithDevTools());
 
-// 创建一个store
+// 创建一个store，并经过中间件处理
 // 2.将 sagaMiddleware 连接至 Store
 let store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 

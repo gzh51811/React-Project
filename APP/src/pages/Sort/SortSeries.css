@@ -1,0 +1,24 @@
+.sortBox .sortImg img{
+	width: 100%;
+	margin-bottom: 30px;
+}
+.sortBox ul,li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sortBox .sortSeries li{
+	width: 33%;
+	/*background: chartreuse;*/
+	height: 120px;
+	float: left;
+}
+.sortBox .sortSeries li img{
+	width: 60px;
+	height: 60px;
+}
+.sortBox .sortSeries li .sortSeriesName{
+	margin: 0;
+	margin-top: 5px;
+}
+

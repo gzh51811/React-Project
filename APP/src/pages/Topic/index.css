@@ -1,0 +1,50 @@
+.topic img{
+	width: 100%;
+}
+.topic .topicContent{
+	padding: 0 15px;
+}
+
+.topic .topicContent h2{
+	margin-top: 15px;
+	font-weight: 600;
+	text-align: left;
+}
+
+.topic .topicHosterInfo {
+	text-align: left;
+}
+
+.topic .topicContent .topicContentText{
+	margin-top: 25px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 30px !important;
+}
+.topic .topicContent .topicContentText p{
+	padding: 0 20px;
+}
+.topic .topicContent .topicContentText .topicContentMiddle{
+	text-align: center;
+	font-weight: 600;
+}
+.topic .topicContent .topicContentText strong{
+	font-weight: 600;
+	color: rgb(255, 147, 32);
+}
+
+.topic .topicContent .topicContentText img{
+	margin:40px 0;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
