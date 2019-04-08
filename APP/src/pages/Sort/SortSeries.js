@@ -18,10 +18,10 @@ class SortSeries extends React.Component {
 			
 		}
 	}
-
-	componentWillMount() {
-		// console.log('分类系列',this.props)
-	}
+// 
+// 	componentWillMount() {
+// 		console.log('分类系列',this.props)
+// 	}
 	
 	goSeriesGoods = (idx,e) =>{
 //		console.log(e.target.tagName);
@@ -31,7 +31,7 @@ class SortSeries extends React.Component {
 		}else if (e.target.tagName.toLowerCase()==='p') {
 			themeSeries=e.target.innerHTML;
 		}
-//		console.log(themeSeries);
+		// console.log(themeSeries);
 		this.props.history.push({
 			pathname:'/sort/series/' + themeSeries,
 			search:"?idx="+idx

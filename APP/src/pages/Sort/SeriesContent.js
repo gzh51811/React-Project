@@ -30,7 +30,7 @@ class SeriesContent extends React.Component {
 	
 	async getData() {
 		let param = new URLSearchParams();
-		param.append('num', this.props.idx)
+		param.append('num', this.props.idx*1+1)
 		let {
 			data
 		} = await this.props.axios({
@@ -38,7 +38,7 @@ class SeriesContent extends React.Component {
 			url: '/setting/findGoods',
 			data: param
 		});
-		console.log(data)
+		// console.log(data)
 		this.setState({
 			goodsList: data
 		});

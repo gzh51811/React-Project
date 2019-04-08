@@ -128,7 +128,7 @@ class Topic extends React.Component {
 					),
 				}
 		})
-		console.log(topicList);
+		// console.log(topicList);
 		//获取数据后处理成相应格式
 		this.setState({
 			data: topicList

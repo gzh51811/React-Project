@@ -54,7 +54,7 @@ class Sort extends React.Component {
 		});
 	}
 	
-	//获取数据函数
+	//获取系列详细分类数据函数
 	async getDate(idx) {
 		let param = new URLSearchParams();
 		param.append('num', idx);
@@ -65,8 +65,9 @@ class Sort extends React.Component {
 			url: '/setting/findList',
 			data: param
 		});
-		// console.log(data);
+		console.log('idex',data);
 		let {updateSort} = this.props;
+		//更新sortReducer里的系列详细分类数据
 		updateSort(data);//调用的是aciton里的函数，返回type类型,后续利用第三方自动用dispatch调用符合type类型的处理逻辑函数
 	}
 	

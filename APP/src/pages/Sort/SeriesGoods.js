@@ -6,7 +6,9 @@ import SeriesContent from './SeriesContent';
 import withAxios from '../../hoc/withAxios';
 
 //挂载store全局函数
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import sortAction from '../../actions/sortAction';
 //挂载history
 import {withRouter} from 'react-router-dom';
 
@@ -25,39 +27,37 @@ class SeriesGoods extends React.Component {
 	}
 
 	componentWillMount() {
-		// console.log('系列商品显示',this.props)
 		let idx = this.props.location.search.slice(5)
 		let {themeSeries} = this.props.match.params;
 		this.setState({
 			themeSeriesName:themeSeries,
 			idx
 		});
-		// console.log('系列商品显示',this.state)
+		//组件刷新时要请求数据，修改全局sortReducer系列分类详情数据
+		this.getDate(idx*1+1);
 	}
-
-	async getData() {
-		//修改接口和处理数据渲染就好#########################################################
+	
+	//获取系列分类详情函数
+	async getDate(idx) {
+		let param = new URLSearchParams();
+		param.append('num', idx);
 		let {
 			data
-		} = await this.props.axios.get('/sort/series', {
-			params: {
-				theme:this.props.children
-			}
+		} = await this.props.axios({
+			method: 'post',
+			url: '/setting/findList',
+			data: param
 		});
-
-		this.setState({
-			themeImgSrc:'',
-			themeSeriesList: data.datas.themeSeriesList
-		});
-
+		// console.log(data);
+		let {updateSort} = this.props;
+		//更新sortReducer里的系列详细分类数据
+		updateSort(data);//调用的是aciton里的函数，返回type类型,后续利用第三方自动用dispatch调用符合type类型的处理逻辑函数
 	}
 	
 	changeDate(_this,idx){
 		_this.setState({
 			idx
 		});
-		// console.log(_this)
-		//发送新请求
 	}
 
 	render() {
@@ -80,12 +80,11 @@ class SeriesGoods extends React.Component {
 				  activeKey = {this.state.idx}
 		        >
 		        	{SeriesArray.map((item,idx)=>{
-		        		return <TabPane tab={item} key={idx}>
+		        		return <TabPane tab={item.name} key={idx}>
 			        			<SeriesContent idx={this.state.idx}/>
 			        		</TabPane>
 		        		}
 		        	)}
-		          
 		        </Tabs>
 	      	</div>
 	    </div>
@@ -98,7 +97,7 @@ SeriesGoods = withRouter(SeriesGoods);
 
 SeriesGoods = connect(
     state=>({sort:state.sort}),
-    dispatch=>({})
+    dispatch=>bindActionCreators(sortAction,dispatch)
 )(SeriesGoods)
 
 export default SeriesGoods;
