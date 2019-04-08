@@ -13,6 +13,7 @@ import MyUser from "./pages/MyUser";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SetFocus from "./pages/SetFocus";
+import setPassword from "./pages/setPassword";
 //引入组件个人样式
 import "./App.css";
 
@@ -99,6 +100,7 @@ class App extends Component {
           <Route path="/list" component={List} />
           <Route path="/myuser" component={MyUser} exact />
           <Route path="/myuser/set" component={SetFocus} exact />
+          <Route path="/myuser/set/setpassw" component={setPassword} exact />
           <Route path="/login" component={Login} />
           <Route path="/cart" component={Cart} />
           <Route path="/reg" component={Register} />

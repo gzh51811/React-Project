@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
 
-import { List, InputNumber, Icon, Row, Col } from "antd";
+import { List, InputNumber, Icon, Row, Col, Button } from "antd";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+
+import withAxios from "../../hoc/withAxios";
 
 import cartAction from "../../actions/cartAction";
 import commonReducer from "../../actions/commonReducer";
@@ -16,27 +18,52 @@ class Cart extends Component {
     this.state = {};
   }
   componentWillMount() {
-    let { showMenus, changecurrent } = this.props;
+    let { showMenus, changecurrent, axios, initCart } = this.props;
     showMenus();
     changecurrent("Cart");
+
+    let username = localStorage.getItem("username");
+    if (username) {
+      axios
+        .post("http://47.102.102.242:1014/setting/findCart", {
+          username: username
+        })
+        .then(res => {
+          // console.log("res", res.data);
+          initCart(res.data);
+        });
+    }
   }
-  componentDidMount() {}
   addNum(id, qty) {
-    let { changeqty } = this.props;
-    changeqty(id, qty + 1);
+    // let { changeqty } = this.props;
+    let num = qty * 1 + 1;
+    // changeqty(id, qty * 1 + 1);
+    this.changeNum(id, num);
   }
   minusNum(id, qty) {
-    let { changeqty } = this.props;
+    // let { changeqty } = this.props;
     let num = qty - 1 >= 1 ? qty - 1 : 1;
-    changeqty(id, num);
+    // changeqty(id, num);
+    this.changeNum(id, num);
+  }
+  changeNum(id, qty) {
+    let { axios, changeqty } = this.props;
+    axios
+      .post("http://47.102.102.242:1014/setting/updateCart", {
+        _id: id,
+        qty
+      })
+      .then(res => {
+        console.log("res", res);
+      });
+    changeqty(id, qty);
   }
   changeCheck(id) {
-    // console.log("check", check);
     let { changechek } = this.props;
     changechek(id);
   }
   render() {
-    let { goodslist, total, changeqty, remove } = this.props;
+    let { goodslist, total, remove } = this.props;
 
     return (
       <div className="Cart" style={{ padding: "15px" }}>
@@ -49,129 +76,151 @@ class Cart extends Component {
                 marginBottom: "30px"
               }}
             >
-              {goodslist.map(goods => {
-                return (
-                  <List.Item key={goods.goods_id} actions={[]}>
-                    <List.Item.Meta
-                      avatar={
-                        <div
-                          style={{
-                            width: "170px",
-                            display: "flex"
-                          }}
-                        >
-                          <div>
-                            {goods.check ? (
-                              <Icon
-                                className="checkIcon"
-                                type="check-circle"
-                                onClick={this.changeCheck.bind(
-                                  this,
-                                  goods.goods_id
-                                )}
-                                style={{
-                                  background: "#f00000"
-                                }}
-                              />
-                            ) : (
-                              <Icon
-                                className="checkIcon"
-                                type="check-circle"
-                                onClick={this.changeCheck.bind(
-                                  this,
-                                  goods.goods_id
-                                )}
-                                style={{
-                                  background: "#fff"
-                                }}
-                              />
-                            )}
-                          </div>
-                          <img
-                            src={goods.goods_image}
-                            style={{
-                              width: "110px",
-                              height: "72px",
-                              padding: "0 15px",
-                              float: "right"
-                            }}
-                          />
-                        </div>
-                      }
-                      description={
-                        <div>
-                          <p
-                            style={{
-                              color: "#333",
-                              fontSize: "14px",
-                              marginBottom: "10px",
-                              textAlign: "left"
-                            }}
-                          >
-                            {goods.goods_name}
-                          </p>
-                          <p
-                            className="price"
-                            style={{
-                              color: "#333",
-                              fontSize: "14px",
-                              marginBottom: "10px",
-                              textAlign: "left"
-                            }}
-                          >
-                            单价：￥<span>{goods.goods_price}</span>
-                          </p>
+              {goodslist.length > 0 ? (
+                goodslist.map(goods => {
+                  return (
+                    <List.Item key={goods._id} actions={[]}>
+                      <List.Item.Meta
+                        avatar={
                           <div
                             style={{
-                              textAlign: "left",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "space-between"
+                              width: "170px",
+                              display: "flex"
                             }}
                           >
                             <div>
-                              <span
-                                className="changeNum"
-                                onClick={this.minusNum.bind(
-                                  this,
-                                  goods.goods_id,
-                                  goods.qty
-                                )}
-                              >
-                                -
-                              </span>
-                              <InputNumber
-                                style={{
-                                  width: "65px",
-                                  height: "34px"
-                                }}
-                                min={1}
-                                value={goods.qty}
-                                onChange={changeqty.bind(this, goods.goods_id)}
-                              />
-                              <span
-                                className="changeNum"
-                                onClick={this.addNum.bind(
-                                  this,
-                                  goods.goods_id,
-                                  goods.qty
-                                )}
-                              >
-                                +
-                              </span>
+                              {goods.check ? (
+                                <Icon
+                                  className="checkIcon"
+                                  type="check-circle"
+                                  onClick={this.changeCheck.bind(
+                                    this,
+                                    goods._id
+                                  )}
+                                  style={{
+                                    background: "#f00000"
+                                  }}
+                                />
+                              ) : (
+                                <Icon
+                                  className="checkIcon"
+                                  type="check-circle"
+                                  onClick={this.changeCheck.bind(
+                                    this,
+                                    goods._id
+                                  )}
+                                  style={{
+                                    background: "#fff"
+                                  }}
+                                />
+                              )}
                             </div>
-                            <Icon
-                              type="delete"
-                              style={{ float: "right" }}
-                              onClick={remove.bind(this, goods.goods_id)}
+                            <img
+                              src={goods.url}
+                              style={{
+                                width: "110px",
+                                height: "72px",
+                                padding: "0 15px",
+                                float: "right"
+                              }}
                             />
                           </div>
-                        </div>
-                      }
-                    />
-                  </List.Item>
-                );
-              })}
+                        }
+                        description={
+                          <div>
+                            <p
+                              style={{
+                                color: "#333",
+                                fontSize: "14px",
+                                marginBottom: "10px",
+                                textAlign: "left"
+                              }}
+                            >
+                              {goods.name}
+                            </p>
+                            <p
+                              className="price"
+                              style={{
+                                color: "#333",
+                                fontSize: "14px",
+                                marginBottom: "10px",
+                                textAlign: "left"
+                              }}
+                            >
+                              单价：￥
+                              <span>{goods.price}</span>
+                            </p>
+                            <div
+                              style={{
+                                textAlign: "left",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "space-between"
+                              }}
+                            >
+                              <div>
+                                <span
+                                  className="changeNum"
+                                  onClick={this.minusNum.bind(
+                                    this,
+                                    goods._id,
+                                    goods.qty
+                                  )}
+                                >
+                                  -
+                                </span>
+                                <InputNumber
+                                  style={{
+                                    width: "65px",
+                                    height: "34px"
+                                  }}
+                                  min={1}
+                                  value={goods.qty}
+                                  onChange={this.changeNum(
+                                    this,
+                                    goods._id,
+                                    goods.qty
+                                  )}
+                                />
+                                <span
+                                  className="changeNum"
+                                  onClick={this.addNum.bind(
+                                    this,
+                                    goods._id,
+                                    goods.qty
+                                  )}
+                                >
+                                  +
+                                </span>
+                              </div>
+                              <Icon
+                                type="delete"
+                                style={{ float: "right" }}
+                                onClick={remove.bind(this, goods._id)}
+                              />
+                            </div>
+                          </div>
+                        }
+                      />
+                    </List.Item>
+                  );
+                })
+              ) : (
+                <div className="container">
+                  <div className="cart-empty" />
+                  <p
+                    style={{
+                      lineHeight: "60px",
+                      fontSize: "13px"
+                    }}
+                  >
+                    购物车空空的
+                  </p>
+                  <Button type="primary" className="buybuybuy">
+                    买买买
+                  </Button>
+                </div>
+              )}
             </List>
             <div
               style={{
@@ -296,7 +345,7 @@ Cart = connect(
     goodslist: state.cart.goodslist,
     total: state.cart.goodslist.reduce((prev, current) => {
       if (current.check) {
-        return prev + current.goods_price * current.qty;
+        return prev + current.price * current.qty;
       } else {
         return prev;
       }
@@ -308,4 +357,5 @@ Cart = connect(
   state => ({}),
   dispatch => bindActionCreators(commonReducer, dispatch)
 )(Cart);
+Cart = withAxios(Cart);
 export default Cart;

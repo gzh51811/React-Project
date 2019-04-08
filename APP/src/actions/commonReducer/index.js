@@ -6,6 +6,7 @@
 export const SHOW_MENUS = "SHOW_MENUS";
 export const HIDE_MENUS = "HIDE_MENUS";
 export const CHANGE_CURRENT = "CHANGE_CURRENT";
+export const ROUTER_BACK = "ROUTER_BACK";
 
 export function showMenus() {
   return {
@@ -23,8 +24,15 @@ export function changecurrent(current) {
     payload: { current }
   };
 }
+export function back(his) {
+  return {
+    type: ROUTER_BACK,
+    payload: his
+  };
+}
 export default {
   showMenus,
   hideMenus,
-  changecurrent
+  changecurrent,
+  back
 };

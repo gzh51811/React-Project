@@ -6,7 +6,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import commonReducer from "../../actions/commonReducer";
-
+import userData from "../../actions/userData";
 import withAxios from "../../hoc/withAxios";
 import { Icon, Button } from "antd";
 
@@ -23,10 +23,21 @@ class setFocus extends React.Component {
     hideMenus();
   }
   gotoBack() {
-    console.log("history", this.props.history);
+    // console.log("history", this.props.history);
+    let { back } = this.props;
+    back(this.props.history);
     // this.props.history.goBack();
   }
+  logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    this.props.history.push("/login");
+  }
+  changePw() {
+    this.props.history.push("/myuser/set/setpassw");
+  }
   render() {
+    let { user } = this.props;
     return (
       <div className="setFocus">
         <div className="setHeader">
@@ -58,7 +69,7 @@ class setFocus extends React.Component {
           <div className="setlist">
             <p>昵称</p>
             <div className="listright">
-              <span>18316579678</span>
+              <span>{user.username}</span>
               <Icon type="right" />
             </div>
           </div>
@@ -119,13 +130,14 @@ class setFocus extends React.Component {
             </div>
           </div>
           <div className="userM">账号安全</div>
-          <div className="setlist">
+          <div className="setlist" onClick={this.changePw.bind(this)}>
             <p>修改密码</p>
             <div className="listright">
               <Icon type="right" />
             </div>
           </div>
           <Button
+            onClick={this.logout.bind(this)}
             type="primary"
             style={{
               width: "100%",
@@ -145,6 +157,12 @@ class setFocus extends React.Component {
 setFocus = connect(
   state => ({}),
   dispatch => bindActionCreators(commonReducer, dispatch)
+)(setFocus);
+setFocus = connect(
+  state => ({
+    user: state.user.user
+  }),
+  dispatch => bindActionCreators(userData, dispatch)
 )(setFocus);
 // 高阶组件的应用
 setFocus = withAxios(setFocus);

@@ -8,7 +8,16 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const CHANGE_QTY = "CHANGE_QTY";
 export const CLEAR_CART = "CLEAR_CART";
 export const CHANGE_CHECK = "CHANGE_CHECK";
+export const INIT_CART = "INIT_CART";
+//初始化商品
+export function initCart(goods) {
+  return {
+    type: INIT_CART,
+    payload: goods
+  };
+}
 
+//添加商品
 export function add(goods) {
   return {
     type: ADD_TO_CART,
@@ -45,6 +54,7 @@ export function clear() {
 }
 
 export default {
+  initCart,
   add,
   remove,
   changeqty,

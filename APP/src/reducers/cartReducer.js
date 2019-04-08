@@ -4,6 +4,7 @@
  */
 
 import {
+  INIT_CART,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CHANGE_QTY,
@@ -13,26 +14,7 @@ import {
 
 // 初始状态
 let initState = {
-  goodslist: [
-    {
-      goods_id: 123,
-      goods_name: "jingjing",
-      goods_price: 80,
-      qty: 1,
-      check: true,
-      goods_image:
-        "https://www.nanshig.com/data/upload/shop/store/goods/39/39_05982351569257288_360.jpg"
-    },
-    {
-      goods_id: 321,
-      goods_name: "didi",
-      goods_price: 100,
-      qty: 3,
-      check: true,
-      goods_image:
-        "https://www.nanshig.com/data/upload/shop/store/goods/39/39_05982351569257288_360.jpg"
-    }
-  ]
+  goodslist: []
 };
 
 // state的修改逻辑
@@ -41,6 +23,12 @@ let reducer = (state = initState, { type, payload }) => {
   // action: 修改指令
   // 返回值：返回新的state
   switch (type) {
+    //初始化商品
+    case INIT_CART:
+      return {
+        ...state,
+        goodslist: payload
+      };
     // 添加商品到购物车
     case ADD_TO_CART:
       return {
@@ -52,7 +40,7 @@ let reducer = (state = initState, { type, payload }) => {
     case REMOVE_FROM_CART:
       return {
         ...state,
-        goodslist: state.goodslist.filter(item => item.goods_id !== payload.id)
+        goodslist: state.goodslist.filter(item => item._id !== payload.id)
       };
 
     // 修改购物车商品数量
@@ -60,7 +48,7 @@ let reducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         goodslist: state.goodslist.map(goods => {
-          if (goods.goods_id === payload.id) {
+          if (goods._id === payload.id) {
             goods.qty = payload.qty;
           }
           return goods;
@@ -78,7 +66,7 @@ let reducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         goodslist: state.goodslist.map(goods => {
-          if (goods.goods_id === payload.id) {
+          if (goods._id === payload.id) {
             goods.check = !goods.check;
           }
           return goods;

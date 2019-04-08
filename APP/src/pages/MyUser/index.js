@@ -6,7 +6,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import commonReducer from "../../actions/commonReducer";
-
+import userData from "../../actions/userData";
 import withAxios from "../../hoc/withAxios";
 
 import { Row, Col, List, Icon } from "antd";
@@ -59,14 +59,33 @@ class MyUser extends React.Component {
     };
   }
   componentWillMount() {
-    let { showMenus, changecurrent } = this.props;
+    // console.log("props", this.props);
+    let { showMenus, changecurrent, axios, changeuser } = this.props;
     showMenus();
     changecurrent("MyUser");
+    let token = localStorage.getItem("token");
+    if (token) {
+      axios
+        .post("http://47.102.102.242:1014/users/autoLogin", {
+          token
+        })
+        .then(res => {
+          if (res.data == "success") {
+            let username = localStorage.getItem("username");
+            changeuser(username);
+          } else {
+            this.props.history.push("/login");
+          }
+        });
+    } else {
+      this.props.history.push("/login");
+    }
   }
   gotoSet() {
     this.props.history.push("/myuser/set");
   }
   render() {
+    let { user } = this.props;
     return (
       <div className="myuser">
         <div className="myuserMain">
@@ -78,7 +97,7 @@ class MyUser extends React.Component {
               />
             </div>
             <div className="m-name">
-              <p>18316579678</p>
+              <p>{user.username}</p>
               <p>会员等级：新用户</p>
               <p>累计消费：0</p>
               <p>完善信息奖励500积分</p>
@@ -130,6 +149,12 @@ class MyUser extends React.Component {
 MyUser = connect(
   state => ({}),
   dispatch => bindActionCreators(commonReducer, dispatch)
+)(MyUser);
+MyUser = connect(
+  state => ({
+    user: state.user.user
+  }),
+  dispatch => bindActionCreators(userData, dispatch)
 )(MyUser);
 // 高阶组件的应用
 MyUser = withAxios(MyUser);
