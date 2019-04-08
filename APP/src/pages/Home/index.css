@@ -1,0 +1,14 @@
+.homeBox{
+	background:#f0f0f0;
+	margin:0;
+}
+.homeLogo{
+	width: 90vw;
+}
+.homeSearch{
+	width: 70vw;
+	margin: 10px 0;
+}
+.homeSearch input{
+	border-radius:16px;
+}

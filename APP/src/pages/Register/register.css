@@ -1,0 +1,60 @@
+.register .register {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  /* background: url("http://activity.dapuimg.com/m_login_newbg.png"); */
+}
+.register .loginimg {
+  width: 100%;
+  height: 780px;
+}
+.register .registermain {
+  width: 100%;
+  height: 58%;
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+.register .login-form {
+  width: 80%;
+}
+.register .login-form input {
+  height: 54px;
+  width: 100%;
+  background: none;
+  font-size: 18px;
+  color: #5b928a;
+  border: none;
+  border-bottom: 1px solid #5b928a;
+}
+.register .ant-input-affix-wrapper .ant-input:not(:first-child) {
+  padding-left: 50px;
+}
+.register .checkBtn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -14px;
+  width: 100px;
+  height: 28px;
+  background: #5b928a;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 28px;
+}
+.register .loginBtn {
+  width: 100%;
+  height: 45px;
+  background: #5b928a;
+  border-radius: 22px;
+}
+.register .Regother {
+  display: flex;
+  justify-content: space-between;
+}
+.register .Regother span {
+  color: #ffffff;
+  font-size: 14px;
+  margin: 0;
+}

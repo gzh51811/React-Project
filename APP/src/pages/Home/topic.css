@@ -1,0 +1,27 @@
+.topicBox .topicImg{
+	width: 100%;
+}
+.topicBox .topicText{
+	margin: 7px 0;
+}
+.topicBox .ant-comment-content-author{
+	position: relative;
+	height: 32px;
+}
+.topicBox .ant-comment-content-author-name{
+	font-weight: 600;
+	color: black;
+	display: block;
+	float: left;
+}
+.topicBox .ant-comment-content-author-time{
+	position: absolute;
+	color: #666;
+	bottom: 0;
+}
+.topicBox .ant-comment-actions{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-bottom:0;
+}
