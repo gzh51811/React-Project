@@ -40,7 +40,7 @@ class SortSeries extends React.Component {
 
 	render() {
 		let {
-			children,themeSeriesList,themeImgSrc
+			children,themeImgSrc
 		} = this.props;
 		let {SeriesArray} = this.props.sort;
 		return <div className="sortBox">
@@ -54,8 +54,8 @@ class SortSeries extends React.Component {
 		    	{
 					SeriesArray.map((item,idx)=>{
 						return  <li onClick={this.goSeriesGoods.bind(this,idx)} key={idx}>
-								<img src="https://activity.dapuimg.com/%E4%BA%8C%E7%BA%A7%E7%B1%BB%E7%9B%AE_0049_%E5%8D%A7%E5%AE%A4%E5%BA%8A%E5%93%81-%E8%8A%B1%E9%B8%9F%E7%B3%BB%E5%88%97.png"/>
-								<p className="sortSeriesName">{item}</p>
+								<img src={item.url}/>
+								<p className="sortSeriesName">{item.name}</p>
 							</li>
 					})
 				}
