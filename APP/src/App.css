@@ -2,27 +2,27 @@
   text-align: center;
   overflow: hidden;
 }
-*{}
+*{} */
 
-.NavMenu{
-	position: fixed;
+/* .NavMenu {
+  position: fixed;
   bottom: 0;
   width: 100vw;
 }
-.NavMenuItem{
-	width:24vw;
-	position: relative;
+.NavMenuItem {
+  width: 24vw;
+  position: relative;
 }
-.NavMenuIcon{
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+.NavMenuIcon {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.NavMenuItem .NavMenuItemText{
-	display: block;
-	height: 37px;
-	font-weight: 600;
-	margin-top: 20px;
+.NavMenuItem .NavMenuItemText {
+  display: block;
+  height: 37px;
+  font-weight: 600;
+  margin-top: 20px;
 } */
 * {
   margin: 0;
@@ -31,10 +31,11 @@
 .App {
   text-align: center;
   width: 100%;
+  overflow: hidden;
 }
 .NavMenu {
-  /* display: flex; */
-  /* flex-direction: row; */
+  /* display: flex;
+  flex-direction: row; */
   position: fixed;
   bottom: 0;
   width: 100%;

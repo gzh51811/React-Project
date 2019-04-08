@@ -48,13 +48,14 @@ class Cart extends Component {
   }
   changeNum(id, qty) {
     let { axios, changeqty } = this.props;
+    // console.log("props", this.props);
     axios
       .post("http://47.102.102.242:1014/setting/updateCart", {
         _id: id,
         qty
       })
       .then(res => {
-        console.log("res", res);
+        // console.log("res", res);
       });
     changeqty(id, qty);
   }
@@ -62,8 +63,16 @@ class Cart extends Component {
     let { changechek } = this.props;
     changechek(id);
   }
+  removeGoods(id) {
+    let { remove, axios } = this.props;
+    remove(id);
+    axios.post("http://47.102.102.242:1014/setting/del", {
+      _id: id,
+      collection: "cart"
+    });
+  }
   render() {
-    let { goodslist, total, remove } = this.props;
+    let { goodslist, total } = this.props;
 
     return (
       <div className="Cart" style={{ padding: "15px" }}>
@@ -176,7 +185,7 @@ class Cart extends Component {
                                   }}
                                   min={1}
                                   value={goods.qty}
-                                  onChange={this.changeNum(
+                                  onChange={this.changeNum.bind(
                                     this,
                                     goods._id,
                                     goods.qty
@@ -196,7 +205,7 @@ class Cart extends Component {
                               <Icon
                                 type="delete"
                                 style={{ float: "right" }}
-                                onClick={remove.bind(this, goods._id)}
+                                onClick={this.removeGoods.bind(this, goods._id)}
                               />
                             </div>
                           </div>
