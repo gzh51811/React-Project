@@ -11,7 +11,7 @@ import {
 
 let initState = {
   show: true,
-  current: "Home"
+  current: ""
 };
 let reducer = (state = initState, { type, payload }) => {
   switch (type) {

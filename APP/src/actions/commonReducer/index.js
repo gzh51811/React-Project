@@ -8,6 +8,8 @@ export const HIDE_MENUS = "HIDE_MENUS";
 export const CHANGE_CURRENT = "CHANGE_CURRENT";
 export const ROUTER_BACK = "ROUTER_BACK";
 
+export const GOTO_SEARCH = "GOTO_SEARCH";
+
 export function showMenus() {
   return {
     type: SHOW_MENUS
@@ -30,9 +32,16 @@ export function back(his) {
     payload: his
   };
 }
+export function goSearch(his) {
+  return {
+    type: GOTO_SEARCH,
+    payload: his
+  };
+}
 export default {
   showMenus,
   hideMenus,
   changecurrent,
-  back
+  back,
+  goSearch
 };

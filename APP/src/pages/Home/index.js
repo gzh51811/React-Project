@@ -10,7 +10,7 @@ import Commend from "./commend";
 //挂载store全局函数
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import commonAction from "../../actions/commonAction";
+import commonReducer from "../../actions/commonReducer";
 //挂载history
 import { withRouter } from "react-router-dom";
 
@@ -18,6 +18,11 @@ class Home extends React.Component {
   constructor(props) {
     super();
     this.state = {};
+  }
+  componentWillMount() {
+    let { showMenus, changecurrent } = this.props;
+    showMenus();
+    changecurrent("Home");
   }
   render() {
     // const { keyword } = this.state;
@@ -75,7 +80,7 @@ Home = connect(
   state => {
     return {};
   },
-  dispatch => bindActionCreators(commonAction, dispatch)
+  dispatch => bindActionCreators(commonReducer, dispatch)
 )(Home);
 
 export default Home;

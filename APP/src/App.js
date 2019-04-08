@@ -37,8 +37,8 @@ class App extends Component {
         },
         {
           text: "分类",
-          name: "List",
-          path: "/list",
+          name: "Sort",
+          path: "/sort",
           icon: "bars"
         },
         {

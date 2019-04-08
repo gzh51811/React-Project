@@ -9,10 +9,10 @@
   margin: 0;
   padding: 0;
 }
-body,
+/* body,
 html {
   height: 100%;
-}
+} */
 .Cart {
   width: 100%;
   /* background: #efefef; */
