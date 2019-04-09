@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# vue项目
 
-## Available Scripts
 
-In the project directory, you can run:
+### 大朴
 
-### `npm start`
+> 介绍：在三阶段react和nodejs的基础上实现一个手机端项目与后台管理系统
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 项目情况-运用技术
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+*后端语言：使用的是Nodejs+Express
 
-### `npm test`
+*数据库：使用的是MongoDB
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*UI框架：使用ant Design
 
-### `npm run build`
+*登陆使用token进行加密、解密、验证
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*其他页面使用nodejs+Express和其他第三方插件
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### 项目说明
+    * 项目名称：大朴
+    * 人员结构：郑志侠（组长），林艺，梁梓棚，杨锰照
+    * 项目分配：
+            *梁梓棚负责登录注册与个人页面，购物车页面实现
+            *郑志侠负责后端，详情页
+            *林艺负责首页和列表页的实现
+            *杨锰照负责后台管理系统的编写
+    * APP演示地址：http://47.102.102.242:9710 （已上线）
+    * 后台管理系统演示地址：http://47.102.102.242:9714 （已上线）
+    * git地址：git@github.com:gzh51811/React-Project.git
+    		  https://github.com/gzh51811/React-Project.git
+    * 演示账号：用户名：laoxie
+               密码：123
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### 完成情况-功能实现
+* 商城
+    * 数据渲染
+* 头条
+    * 数据渲染
+* 详情页
+    * 数据渲染
+* 购物车页
+    * 数据渲染
+* 个人页
+    * 登陆
+    * 注册
+    * token验证
