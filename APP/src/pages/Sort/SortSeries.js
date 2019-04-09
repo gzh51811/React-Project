@@ -31,10 +31,10 @@ class SortSeries extends React.Component {
 		}else if (e.target.tagName.toLowerCase()==='p') {
 			themeSeries=e.target.innerHTML;
 		}
-		// console.log(themeSeries);
+		console.log(themeSeries,this.props.sortIdx);
 		this.props.history.push({
 			pathname:'/sort/series/' + themeSeries,
-			search:"?idx="+idx
+			search:"?idx="+idx+'&sortIdx='+this.props.sortIdx
 		})
 	}
 

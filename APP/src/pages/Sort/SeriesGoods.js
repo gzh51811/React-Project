@@ -27,14 +27,16 @@ class SeriesGoods extends React.Component {
 	}
 
 	componentWillMount() {
-		let idx = this.props.location.search.slice(5)
+		let idx = this.props.location.search.slice(5,6);
+		// console.log('剪切参数',idx)
 		let {themeSeries} = this.props.match.params;
 		this.setState({
 			themeSeriesName:themeSeries,
 			idx
 		});
 		//组件刷新时要请求数据，修改全局sortReducer系列分类详情数据
-		this.getDate(idx*1+1);
+		let a = this.props.location.search.slice(15,16);
+		this.getDate(a*1+1);
 	}
 	
 	//获取系列分类详情函数
@@ -48,7 +50,7 @@ class SeriesGoods extends React.Component {
 			url: '/setting/findList',
 			data: param
 		});
-		// console.log(data);
+		// console.log('goods',data);
 		let {updateSort} = this.props;
 		//更新sortReducer里的系列详细分类数据
 		updateSort(data);//调用的是aciton里的函数，返回type类型,后续利用第三方自动用dispatch调用符合type类型的处理逻辑函数

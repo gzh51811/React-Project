@@ -106,22 +106,22 @@ class App extends Component {
           <Route path="/myuser" component={MyUser} exact />
           <Route path="/myuser/set" component={SetFocus} exact />
           <Route path="/myuser/set/setpassw" component={setPassword} exact />
-          <Route path="/login" component={Login} />
-          <Route path="/reg" component={Register} />
+          <Route path="/login" component={Login} exact/>
+          <Route path="/reg" component={Register} exact/>
           <Route path="/home" component={Home} exact />
           <Route path="/sort" component={Sort} exact />
-		  <Route path="/details" component={Details} />
+		  <Route path="/details" component={Details} exact/>
           <Route
             path="/sort/series/:themeSeries"
             component={SeriesGoods}
             exact
           />
-          <Route path="/goods/:id" component={Goods} />
-          <Route path="/cart" component={Cart} />
-          <Route path="/product/:goodsId" component={Product} />
+          <Route path="/goods/:id" component={Goods} exact/>
+          <Route path="/cart" component={Cart} exact/>
+          <Route path="/product/:goodsId" component={Product} exact/>
           <Route path="/home/topic" component={Topic} exact />
-          <Route path="/search" component={Search} />
-          <Redirect from="/" to="/home" />
+          <Route path="/search" component={Search} exact/>
+          <Redirect from="/" to="/home" exact/>
         </Switch>
       </div>
     );

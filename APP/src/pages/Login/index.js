@@ -35,7 +35,7 @@ class Login extends React.Component {
           password: pword
         })
         .then(res => {
-          if (res.data.status == "success") {
+          if (res.data.status === "success") {
             console.log("success", res.data);
             localStorage.setItem("username", uname);
             localStorage.setItem("token", res.data.token);

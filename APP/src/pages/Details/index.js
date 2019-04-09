@@ -85,28 +85,37 @@ class Details extends Component {
         let goodslist = this.props.goodslist
         let username = localStorage.getItem("username")
         let { add, changeqty } = this.props
-        console.log("goodslist",goodslist)
+        console.log("goodslist", goodslist)
         // console.log(goods)
-        
+
         if (username) {
-            if (goodslist.length>0) {
-                console.log(2) 
-                console.log("goods",goods)
-                goodslist.map(item => {
-                    if (goods._id === item.goodsid) {
-                        this.updateNum(item.goodsid, item.qty)
-                        changeqty(item._id, item.qty * 1 + 1)
-                    } else {
-                        add(goods);
-                        this.addGoods(goods, username)
+            if (goodslist.length > 0) {
+                console.log("goods", goods)
+                let a = 0;
+                let j = 0;
+                for (var i = 0; i < goodslist.length; i++) {
+                    console.log("id", goodslist[i].goodsid)
+                    if (goods._id === goodslist[i].goodsid) {
+                        a = 1;
+                        j = i;
                     }
-                })
+                }
+                if (a === 1) {
+                    this.updateNum(goodslist[j].goodsid, goodslist[j].qty)
+                    changeqty(goodslist[j]._id, goodslist[j].qty * 1 + 1)
+                    console.log(2);
+                } else {
+                    console.log(1)
+                    goods.goodsid = goods._id;
+                    goods.qty = 1;
+                    add(goods);
+                    this.addGoods(goods, username);
+                }
             } else {
-                console.log(1)   
                 this.addGoods(goods, username);
                 console.log(goods)
-                goods.goodsid=goods._id;
-                goods.qty=1;
+                goods.goodsid = goods._id;
+                goods.qty = 1;
                 add(goods);
             }
 
@@ -121,8 +130,8 @@ class Details extends Component {
         let username = localStorage.getItem("username")
         axios
             .post("http://47.102.102.242:1014/setting/updateCart", {
-                username:username,
-                goodsid:id,
+                username: username,
+                goodsid: id,
                 qty: qty * 1 + 1
             })
             .then(res => {
@@ -138,7 +147,7 @@ class Details extends Component {
                 url: goods.url,
                 price: goods.price,
                 username: username,
-                goodsid:goods._id,
+                goodsid: goods._id,
                 qty: 1 * 1,
                 num: goods.num,
                 buy: 0 * 1
