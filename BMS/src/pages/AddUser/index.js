@@ -62,7 +62,7 @@ class AddUser extends Component {
         const { getFieldDecorator } = this.props.form;
         return (
             <Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }} onSubmit={this.handleSubmit}>
-                <Form.Item label="Username">
+                <Form.Item label="用户名">
                     {getFieldDecorator('username', {
                         rules: [{ required: true, message: 'Please input your name!' }],
                     })(
@@ -70,7 +70,7 @@ class AddUser extends Component {
                     )}
                 </Form.Item>
                 <Form.Item
-                    label="Password"
+                    label="密码"
                     >
                     {getFieldDecorator('password', {
                         rules: [{
@@ -83,7 +83,7 @@ class AddUser extends Component {
                     )}
                 </Form.Item>
                 <Form.Item
-                    label="Confirm Password"
+                    label="确认密码"
                     >
                     {getFieldDecorator('confirm', {
                         rules: [{

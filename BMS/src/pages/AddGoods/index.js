@@ -12,100 +12,100 @@ class AddGoods extends Component {
                 value: '1',
                 label: '卧室床品',
                 children: [{
-                    value: 'hn',
+                    value: '花鸟',
                     label: '花鸟系列',
                 },{
-                    value: 'lcb',
+                    value: '老粗布',
                     label: '老粗布系列',
                 },{
-                    value: 'hq',
+                    value: '婚庆',
                     label: '婚庆系列',
                 },{
-                    value: 'jt',
+                    value: '件套',
                     label: '件套',
                 },{
-                    value: 'cd',
+                    value: '床单',
                     label: '床单/床笠',
                 },{
-                    value: 'bz',
+                    value: '被罩',
                     label: '被罩',
                 }],
             }, {
                 value: '2',
                 label: '冠军毛巾',
                 children: [{
-                    value: 'mj',
+                    value: '毛巾',
                     label: '毛巾',
                 },{
-                    value: 'fj',
+                    value: '方巾',
                     label: '方巾',
                 },{
-                    value: 'yj',
+                    value: '浴巾',
                     label: '浴巾/浴袍',
                 }],
             }, {
                 value: '3',
                 label: '女装',
                 children: [{
-                    value: 'jjf',
+                    value: '家居服',
                     label: '家居服',
                 },{
-                    value: 'tx',
+                    value: 'T恤',
                     label: 'T恤/背心',
                 },{
-                    value: 'kz',
+                    value: '裤子',
                     label: '裤子',
                 },{
-                    value: 'qz',
+                    value: '裙子',
                     label: '裙子',
                 },{
-                    value: 'bn',
+                    value: '保暖',
                     label: '保暖内衣',
                 }],
             }, {
                 value: '4',
                 label: '男装',
                 children: [{
-                    value: 'jf',
-                    label: 'jf',
+                    value: '家具服',
+                    label: '家具服',
                 },{
-                    value: 'ntx',
+                    value: 'T恤',
                     label: '男T恤',
                 },{
-                    value: 'cs',
+                    value: '衬衫',
                     label: '衬衫',
                 },{
-                    value: 'nk',
+                    value: '内裤',
                     label: '内裤',
                 }],
             }, {
                 value: '5',
                 label: '日用品',
                 children: [{
-                    value: 'cj',
-                    label: 'cj',
+                    value: '抽纸',
+                    label: '抽纸',
                 },{
-                    value: 'qw',
-                    label: 'qw',
+                    value: '围裙',
+                    label: '围裙',
                 }],
             }, {
                 value: '6',
                 label: '洗涤用品',
                 children: [{
-                  value: 'yld',
+                  value: '氧力多',
                   label: '氧利多',
                 }],
             }, {
                 value: '7',
                 label: '包袋',
                 children: [{
-                    value: 'lqb',
+                    value: '零钱包',
                     label: '零钱包',
                 },{
-                    value: 'gwb',
+                    value: '购物包',
                     label: '购物包',
                 },{
-                    value: 'zwb',
+                    value: '杂物包',
                     label: '杂物包',
                 }],
             }]
@@ -174,7 +174,7 @@ class AddGoods extends Component {
                     label="商品分类"
                     >
                     {getFieldDecorator('goodsType', {
-                        initialValue: ['1', 'hn'],
+                        initialValue: ['1', '花鸟'],
                         rules: [{ type: 'array', required: true, message: 'Please select your habitual num!' }],
                     })(
                         <Cascader options={this.state.residences} />

@@ -77,7 +77,7 @@ class EditUser extends Component {
         const { getFieldDecorator } = this.props.form;
         return (
             <Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }} onSubmit={this.handleSubmit}>
-                <Form.Item label="Username">
+                <Form.Item label="用户名">
                     {getFieldDecorator('username', {
                         initialValue:this.state.userInfo.record?this.state.userInfo.record.username:'',
                         rules: [{ required: true, message: 'Please input your name!' }],
@@ -86,7 +86,7 @@ class EditUser extends Component {
                     )}
                 </Form.Item>
                 <Form.Item
-                    label="Password"
+                    label="密码"
                     >
                     {getFieldDecorator('password', {
                         initialValue:this.state.userInfo.record?this.state.userInfo.record.password:'',
@@ -100,7 +100,7 @@ class EditUser extends Component {
                     )}
                 </Form.Item>
                 <Form.Item
-                    label="Confirm Password"
+                    label="确认密码"
                     >
                     {getFieldDecorator('confirm', {
                         rules: [{

@@ -1,15 +1,16 @@
-import { Table,Input,Select,Spin} from 'antd';
+import { Table,Input,Select,Spin,Modal} from 'antd';
 import React from 'react';
 import withAxios from '../../hoc/withAxios';
 import store from '../../store';    
 const Search = Input.Search;
 const Option = Select.Option;
 
-
 class Home extends React.Component {
     constructor(){
         super();
         this.state={ 
+            imgurl:'',
+            visible: false,
             index:'',
             num:'1',
             dataSource : [],
@@ -22,6 +23,14 @@ class Home extends React.Component {
                 title: '商品名称',
                 dataIndex: 'name',
                 key: 'name',
+            },{
+                title: '商品图片',
+                key: 'url',
+                render: (record) => (
+                    <div style={{width:'50px'}}>
+                        <img src={record.url} style={{width:'100%',cursor:'pointer'}} alt={record.name}  onClick={this.showModal.bind(this,record)}/>
+                    </div>
+                ),
             }, {
                 title: '价格',
                 dataIndex: 'price',
@@ -45,6 +54,7 @@ class Home extends React.Component {
 
     // 编辑商品
     editGoods(record){
+        console.log(record)
         let id = record._id
         store.dispatch({type:'editgoods',payload:{record}})
         // console.log(record)
@@ -75,7 +85,26 @@ class Home extends React.Component {
         }
     }
 
-
+    // 图片展示
+    showModal = (record) => {
+        this.setState({
+            visible: true,
+            imgurl:record.url
+        });
+    }
+    
+    handleOk = (e) => {
+        this.setState({
+            visible: false,
+        });
+    }
+    
+    handleCancel = (e) => {
+        this.setState({
+            visible: false,
+        });
+    }
+    
 
     componentDidMount(){
         let token = localStorage.getItem("token")
@@ -137,6 +166,14 @@ class Home extends React.Component {
                         <Table dataSource={this.state.dataSource} columns={this.state.columns} rowKey="_id"/>
                     </Spin>
                 </div>
+                <Modal
+                    title="商品图片"
+                    visible={this.state.visible}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                    >
+                    <img src={this.state.imgurl} style={{width:'100%'}} alt='商品图片'/>
+                </Modal>
             </div>
         );
     }
