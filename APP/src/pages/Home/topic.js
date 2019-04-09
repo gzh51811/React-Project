@@ -50,7 +50,7 @@ class Topic extends React.Component {
 		});
 	}
 	goTopic = (e) => {
-		if (e.target.className=='topicText'||e.target.className=='topicImg') {
+		if (e.target.className === 'topicText'||e.target.className ==='topicImg') {
 //			console.log('点击帖子内容跳转话题主页')
 			this.props.history.push('/home/topic');
 		}
@@ -115,7 +115,7 @@ class Topic extends React.Component {
 					avatar: 'https://activity.dapuimg.com/%E5%A4%A7%E6%9C%B4%E5%A4%B4%E5%83%8F.jpg',
 					content: (
 						<div className="contentBox">
-							<img className="topicImg" src="https://activity.dapuimg.com/%E7%B2%BE1.jpg"/>
+							<img className="topicImg" src="https://activity.dapuimg.com/%E7%B2%BE1.jpg" alt="话题"/>
 							<p className="topicText">草木染｜植物提取染料，贴近肌肤的安全</p>
 						</div>
 					),
@@ -128,7 +128,7 @@ class Topic extends React.Component {
 					),
 				}
 		})
-		console.log(topicList);
+		// console.log(topicList);
 		//获取数据后处理成相应格式
 		this.setState({
 			data: topicList
