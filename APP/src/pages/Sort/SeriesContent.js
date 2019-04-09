@@ -24,7 +24,7 @@ class SeriesContent extends React.Component {
 	
 	goProduct = (goodsId) => {
 		this.props.history.push({
-			pathname:'/product/' + goodsId
+			pathname:'/details/' + goodsId
 		});
 	}
 	

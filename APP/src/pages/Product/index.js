@@ -8,6 +8,7 @@ class Product extends React.Component {
 		this.state = {
 		}
 	}
+	
 	render(){
 		return <div>产品</div>
 	}

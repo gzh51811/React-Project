@@ -13,6 +13,7 @@ import Cart from "./pages/Cart";
 import MyUser from "./pages/MyUser";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Details from './pages/Details';
 import SetFocus from "./pages/SetFocus";
 import setPassword from "./pages/setPassword";
 import Topic from "./pages/Topic";
@@ -109,6 +110,7 @@ class App extends Component {
           <Route path="/reg" component={Register} />
           <Route path="/home" component={Home} exact />
           <Route path="/sort" component={Sort} exact />
+		  <Route path="/details" component={Details} />
           <Route
             path="/sort/series/:themeSeries"
             component={SeriesGoods}

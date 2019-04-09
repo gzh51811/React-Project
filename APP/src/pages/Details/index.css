@@ -1,0 +1,115 @@
+.details .NavMenu{
+    display: none;
+}
+.details1 .ant-carousel{
+    z-index:-1;
+    margin-bottom:20px;
+  }
+  .details1 .ant-carousel .slick-slide {
+    text-align: center;
+    height: 360px;
+    line-height: 360px;
+    background: #364d79;
+    overflow: hidden;
+  }
+  .details1 .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }
+  .details1 .ant-carousel img{
+    width: 100%;
+  }
+  .details1 .container{
+    padding:0 15px;
+    margin:0 auto;
+    max-width: 640px;
+    text-align: left;
+  }
+  .details1 .container h4{
+    font-size: 1.125rem;
+    text-align: left;
+  }
+  .details1 .container h5{
+    color:#bbb;
+    font-size: .875rem;
+  }
+  .details1 .container .color2{
+    color:#b10000;  
+  }
+  .details1 .container2{
+    padding:0 15px;
+    margin:0 auto;
+    text-align: left;
+  }
+  .details1 .container2 span{
+    display: block; 
+  }
+  .details1 .container2 .ant-btn{
+    margin-top:10px;
+    margin-left:10px;
+  }
+  .details1 .container2 .ant-btn:hover,.ant-btn:focus{
+    color:white;
+    background: #d9534f;
+    border-color:#d9534f;
+  }
+  .details1 .container .tab1{
+    margin-top:10px;
+  }
+  .details1 .container .tab1 tr{
+    border-bottom: 1px solid #ccc;
+  }
+  .details1 .container .tab1 td{
+    padding:8px;
+  }
+  .details1 .container img{
+    width: 100%;
+  }
+  .details1 .ant-row{
+    padding: 5px 0;
+    max-width: 640px;
+  }
+  .details1 .ant-col-12 img{
+    width: 35px;
+    height: 35px;
+    padding-left:10px;
+  }
+  .details1 .hpin{
+    padding-top: 10px;
+    text-align: right !important;
+    padding-right:10px;
+  }
+  .details1 .ant-col-12{
+    text-align: left;
+  }
+  .details1 .ant-col-24{
+    padding-top:10px;
+  }
+  .details1 .sjian{
+    text-align: right;
+    padding-right:10px;
+  }
+  .details1 .contant{
+    text-align: left;
+    margin-left:20px;
+  }
+  .details1 .support{
+    color:red;
+  }
+  .details1 .bottom{
+    position: fixed;
+    bottom:0;
+    width:100%;
+    background: #f8f8f8;
+    height: 50px;
+    line-height: 50px;
+  }
+  .details1 .bottom .ant-row{
+    padding:0;
+  }
+  .details1 .bottom svg{
+    color:#84bf96;
+  }
+  .details1 .bottom .ant-col-8{
+    background: #DA5278;
+    color:white;
+  }
