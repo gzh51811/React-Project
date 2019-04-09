@@ -15,7 +15,7 @@ class Commend extends React.Component {
 	
 	goProduct = (goodsId) => {
 		this.props.history.push({
-			pathname:'/product/' + goodsId
+			pathname:'/details/' + goodsId
 		});
 	}
 	async getData(){

@@ -110,7 +110,7 @@ class App extends Component {
           <Route path="/reg" component={Register} exact/>
           <Route path="/home" component={Home} exact />
           <Route path="/sort" component={Sort} exact />
-		  <Route path="/details" component={Details} exact/>
+		  <Route path="/details/:goodsId" component={Details} exact/>
           <Route
             path="/sort/series/:themeSeries"
             component={SeriesGoods}

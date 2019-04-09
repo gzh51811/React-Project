@@ -31,7 +31,7 @@ class SortSeries extends React.Component {
 		}else if (e.target.tagName.toLowerCase()==='p') {
 			themeSeries=e.target.innerHTML;
 		}
-		console.log(themeSeries,this.props.sortIdx);
+		// console.log(themeSeries,this.props.sortIdx);
 		this.props.history.push({
 			pathname:'/sort/series/' + themeSeries,
 			search:"?idx="+idx+'&sortIdx='+this.props.sortIdx
@@ -45,7 +45,7 @@ class SortSeries extends React.Component {
 		let {SeriesArray} = this.props.sort;
 		return <div className="sortBox">
 	    	<div className="sortImg">
-		    	<img src={themeImgSrc}/>
+		    	<img src={themeImgSrc}  alt="主题"/>
 		    </div>
 		    <div className="sortTitle">
 		    	<p>—— {children}分类 ——</p>
@@ -54,7 +54,7 @@ class SortSeries extends React.Component {
 		    	{
 					SeriesArray.map((item,idx)=>{
 						return  <li onClick={this.goSeriesGoods.bind(this,idx)} key={idx}>
-								<img src={item.url}/>
+								<img src={item.url} alt="分类"/>
 								<p className="sortSeriesName">{item.name}</p>
 							</li>
 					})

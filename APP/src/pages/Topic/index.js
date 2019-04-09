@@ -16,32 +16,11 @@ class Topic extends React.Component {
 		}
 	}
 
-	async componentWillMount() {
-
-		// 使用axios
-		//      let { data } = await this.props.axios.get('/mobile/index.php', {
-		//          params: {
-		//              act: 'goods',
-		//              op: 'goods_list',
-		//              keyword: '',
-		//              page: 10,
-		//              curpage: 1
-		//          }
-		//      });
-		//
-		//      console.log(data);
-		//
-		//      this.setState({
-		//          datalist: data.datas.goods_list
-		//      });
-
-	}
-
 	render() {
 		return(
 			<div className="topic">
 				<Header>话题主页</Header>
-				<img src="https://activity.dapuimg.com/%E7%B2%BE%E9%80%89%E8%AF%9D%E9%A2%98-3.jpg"/>
+				<img src="https://activity.dapuimg.com/%E7%B2%BE%E9%80%89%E8%AF%9D%E9%A2%98-3.jpg" alt="洗衣机"/>
         		<div className="topicContent">
         			<h2>用了它，一万块的衬衫也敢扔进洗衣机里直接洗！</h2>
         			<div className="topicHosterInfo">
@@ -50,19 +29,19 @@ class Topic extends React.Component {
 	        			<span style={{marginLeft:'5px',fontWeight:800,float:"right"}}>2018-02-03</span>
 	        			<div className="topicContentText">
 		        			<p>对像小编这样的懒人来说，<strong>洗衣机</strong>可是解放双手的一大神器。</p>
-		        			<img src="http://activity.dapuimg.com/1551256526000717.jpg"/>
+		        			<img src="http://activity.dapuimg.com/1551256526000717.jpg" alt="洗衣机"/>
 		        			<p>但是假如把衣服直接放在洗衣机里，不但娇贵面料容易
 		        				<strong>变形受损</strong>
 		        				，洗了几次就扭曲成一滩抹布，而且每次洗完以后裤子和袖子
 		        				<strong>打结缠绕</strong>
 		        				就让我失去了晒衣服的欲望……
 		        			</p>
-		        			<img src="http://activity.dapuimg.com/1551256533000314.jpg"/>
+		        			<img src="http://activity.dapuimg.com/1551256533000314.jpg" alt="洗衣机"/>
 		        			<p>所以每次对贵重衣物以及料子比较脆弱的衣服，小编都是
 		        				<strong>辛辛苦苦手洗</strong>
 		        				的（请表扬我），偏偏现在冬天到了，即便用热水手洗也仿佛酷刑一般，让我不得不放弃。
 		        			</p>
-		        			<img src="http://activity.dapuimg.com/1551256540000710.jpg"/>
+		        			<img src="http://activity.dapuimg.com/1551256540000710.jpg" alt="洗衣机"/>
 		        			<p>而且像我已经结婚的闺蜜家里三口人，衣服全靠手洗是要
 		        				<strong>累死</strong>
 		        				的，有没有什么好的对策呢？
@@ -82,7 +61,7 @@ class Topic extends React.Component {
 		        			<p className="topicContentMiddle">
 		        				<span style={{background:"rgba(234, 209, 141, 0.580392)"}}>/防磨损/</span>
 		        			</p>
-		        			<img src="http://activity.dapuimg.com/1551256547000110.jpg"/>
+		        			<img src="http://activity.dapuimg.com/1551256547000110.jpg" alt="洗衣机"/>
 		        			<p>机洗过程中，
 		        				<strong>金属饰品</strong>
 		        				很容易甩掉并刮伤其他衣物，将衣物放入洗衣袋，可避免洗衣机在高速旋转甩压的过程中，造成衣物缝合处开线或扣子脱落，并可
@@ -91,7 +70,7 @@ class Topic extends React.Component {
 		        			<p className="topicContentMiddle">
 		        				<span style={{background:"rgba(234, 209, 141, 0.580392)"}}>/防缠绕/</span>
 		        			</p>
-		        			<img src="http://activity.dapuimg.com/155125655400084.jpg"/>
+		        			<img src="http://activity.dapuimg.com/155125655400084.jpg" alt="洗衣机"/>
 		        			<p>而且由于洗衣袋的禁锢，可有效
 		        				<strong>防止大量衣服缠绕打结</strong>
 		        				，在保护衣物的同时也
@@ -100,7 +79,7 @@ class Topic extends React.Component {
 		        			<p className="topicContentMiddle">
 		        				<span style={{background:"rgba(234, 209, 141, 0.580392)"}}>/防变形/</span>
 		        			</p>
-		        			<img src="http://activity.dapuimg.com/155125656100016.jpg"/>
+		        			<img src="http://activity.dapuimg.com/155125656100016.jpg" alt="洗衣机"/>
 		        			<p>而洗衣袋最实用的功能，就是可以阻止强力洗涤时因衣物互相缠绕扭曲导致的
 		        				<strong>衣物变形问题</strong>
 		        				，机洗也
@@ -109,7 +88,7 @@ class Topic extends React.Component {
 		        			<p className="topicContentMiddle">
 		        				<span style={{background:"rgba(234, 209, 141, 0.580392)"}}>/方便卫生/</span>
 		        			</p>
-		        			<img src="http://activity.dapuimg.com/1551256568000819.jpg"/>
+		        			<img src="http://activity.dapuimg.com/1551256568000819.jpg" alt="洗衣机"/>
 		        			<p>而且正因为洗衣袋的隔离，可将衣物之间
 		        				<strong>相互隔离，杜绝污染</strong>
 		        				。即使是内衣裤也可使用
@@ -119,19 +98,19 @@ class Topic extends React.Component {
 		        				<span style={{background:"rgba(234, 209, 141, 0.580392)"}}>贴心设计</span>：
 		        			</p>
 		        			<p className="topicContentMiddle">精心挑选·圆形设计</p>
-		        			<img src="http://activity.dapuimg.com/155125657600040.jpg"/>
+		        			<img src="http://activity.dapuimg.com/155125657600040.jpg" alt="洗衣机"/>
 		        			<p>经过设计师的数百次试验及精心挑选，终于确定了有别传统的
 		        				<strong>圆形造型</strong>
 		        				，圆形的结构在洗衣机内部更易滚动，不仅助力洗涤还不易残留洗衣液。
 		        			</p>
 		        			<p className="topicContentMiddle">无荧光网布·安全放心</p>
-		        			<img src="http://activity.dapuimg.com/155125658200082.jpg"/>
+		        			<img src="http://activity.dapuimg.com/155125658200082.jpg" alt="洗衣机"/>
 		        			<p>而坚持大朴一贯以来的方针，这款洗衣袋布料亦使用
 		        				<strong>无荧光网布</strong>
 		        				。不仅孔洞细腻，而且具有极强的抗张力和耐腐蚀性，网料编制紧密，长久使用也不会变形走位。
 		        			</p>
 		        			<p className="topicContentMiddle">细节处理·贴心耐用</p>
-		        			<img src="http://activity.dapuimg.com/155125658900040.jpg"/>
+		        			<img src="http://activity.dapuimg.com/155125658900040.jpg" alt="洗衣机"/>
 		        			<p>洗衣袋的细节处亦是诚意满满，经常使用的拉链处我们选择了高品质带大朴logo的
 		        				<strong>YKK拉链</strong>
 		        				，流畅且耐用。而且还有
